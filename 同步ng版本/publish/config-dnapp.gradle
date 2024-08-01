@@ -1,0 +1,124 @@
+// app 自打maven 项目依赖定义
+/**
+ * 版本命名规则
+ * 1.[分支版本].[子分支版本].[临时版本日期]
+ * 修改了版本请前往https://vimedia.feishu.cn/wiki/wikcnJ3zITOMSKUYWxOPBh2MRld添加标注
+ */
+ext {
+    ng_group_id = "com.dn.group.ng"
+
+    /**
+     * 版本详细请查看版本说明.txt
+     */
+    ng_version = "1.106.0"
+
+
+    /**
+     * 中间库业务支撑
+     * 可能不同分支会不一样
+     */
+    ng_pipe_version                     = "1.106.0.240327.2"
+    ng_kits_version                     = "1.106.0.240327.2"
+    ng_proxy_version                    = "1.106.0.240410.2"
+    ng_openlibs_version                 = "1.106.0.240327.2"
+    ng_asc_version                      = "1.106.0.240327.2"
+    ng_hotdex_version                   = "1.106.0.240327.2"
+    ng_bus_apppin_version               = "1.106.0.240327.2"
+
+    /**
+     * 动态依赖库, 一般不变
+     */
+    ng_open_scenes_version              = "1.106.0.240410.6"
+    ng_open_launcher_version            = "1.106.0.240327.2"
+    ng_open_safe_version                = "1.106.0.240327.2"
+    ng_dddimpl_version                  = "1.106.0.240327.2"
+
+    ng_abs_scenes_version               = "1.106.0.240411.2"
+    ng_open_audit_version               = "1.106.0.240327.2"
+    ng_eazy_scenes_version              = "1.106.0.240410.4"
+
+    /**
+     * 基础库+功能库. 一般不会随着分支功能而改变
+     * 万年不变!!! 请勿随意修改版本!!!
+     */
+    ng_arch_ext_version                 = "1.106.0.240327.2"
+    ng_arch_common_version              = "1.106.0.240327.2"
+    ng_arch_base_version                = "1.106.0.240327.2"
+    ng_adm_version                      = "1.106.0.240327.2"
+    ng_platform2_version                = "1.106.0.240327.2"
+    ng_prpr_version                     = "1.106.0.240327.3"
+
+    //不动了, 除非要到鞭尸的地步
+//    ng_news_expand_version              = "1.0.7.231221.1"
+//    ng_tencen_common_version            = "1.0.7"
+//    ng_tencen_weixin_version            = "1.0.7"
+//    ng_vivo_push_version                = "1.106.0"
+
+    //基础库--基本不会动
+    ng_arch_common_artifact_id          = "arch-common"
+    ng_arch_base_artifact_id            = "arch-base"
+    ng_arch_ext_artifact_id             = "arch-ext"
+    ng_pipe_artifact_id                 = "pipe"
+    ng_adm_artifact_id                  = "adm"
+    ng_proxy_artifact_id                = "proxy"
+    ng_kits_artifact_id                 = "kits"
+    ng_openlibs_artifact_id             = "openlibs"
+    ng_abs_scenes_artifact_id           = "abs-scenes"
+    ng_platform2_artifact_id            = "platform2"
+    ng_dddimpl_artifact_id              = "dddipml"
+    ng_open_scenes_artifact_id          = "open-scenes"
+    ng_open_launcher_artifact_id        = "open-launcher"
+    ng_open_safe_artifact_id            = "open-safe"
+    ng_open_audit_artifact_id           = "open-audit"
+    ng_asc_artifact_id                  = "asc"
+    ng_eazy_scenes_artifact_id          = "eazy-scenes"
+    ng_hotdex_artifact_id               = "hotDex"
+    ng_prpr_artifact_id                 = "open_prpr"
+    ng_bus_apppin_artifact_id           = "bus-apppin"
+
+    //想鞭尸？
+//    ng_news_expand_artifact_id          = "ads-news-expand"
+//    ng_tencen_weixin_artifact_id        = "expand-tencen-weixin"
+//    ng_tencen_common_artifact_id        = "expand-tencen-common"
+//    ng_vivo_push_artifact_id            = "vivo-push"
+
+    open_arch_common                    = "$ng_group_id:$ng_arch_common_artifact_id:$ng_arch_common_version"
+    open_arch_base                      = "$ng_group_id:$ng_arch_base_artifact_id:$ng_arch_base_version"
+    open_arch_ext                       = "$ng_group_id:$ng_arch_ext_artifact_id:$ng_arch_ext_version"
+
+    open_ng_pipe                        = "$ng_group_id:$ng_pipe_artifact_id:$ng_pipe_version"
+    open_ng_adm                         = "$ng_group_id:$ng_adm_artifact_id:$ng_adm_version"
+    open_ng_proxy                       = "$ng_group_id:$ng_proxy_artifact_id:$ng_proxy_version"
+    //平台sdk
+    open_ng_platform2                   = "$ng_group_id:$ng_platform2_artifact_id:$ng_platform2_version"
+
+    open_ng_kits                        = "$ng_group_id:$ng_kits_artifact_id:$ng_kits_version"
+    open_ng_openlibs                    = "$ng_group_id:$ng_openlibs_artifact_id:$ng_openlibs_version"
+    //保活
+    open_ng_dddimpl                     = "$ng_group_id:$ng_dddimpl_artifact_id:$ng_dddimpl_version"
+    //应用外
+    open_ng_open_scenes                 = "$ng_group_id:$ng_open_scenes_artifact_id:$ng_open_scenes_version"
+    open_ng_abs_scenes                  = "$ng_group_id:$ng_abs_scenes_artifact_id:$ng_abs_scenes_version"
+
+
+    open_ng_asc                         = "$ng_group_id:$ng_asc_artifact_id:$ng_asc_version"
+    open_ng_eazy_scenes                 = "$ng_group_id:$ng_eazy_scenes_artifact_id:$ng_eazy_scenes_version"
+
+
+    open_ng_open_launcher               = "$ng_group_id:$ng_open_launcher_artifact_id:$ng_open_launcher_version"
+    open_ng_open_safe                   = "$ng_group_id:$ng_open_safe_artifact_id:$ng_open_safe_version"
+
+    open_ng_open_audit                  = "$ng_group_id:$ng_open_audit_artifact_id:$ng_open_audit_version"
+    open_ng_hotdex                      = "$ng_group_id:$ng_hotdex_artifact_id:$ng_hotdex_version"
+    open_ng_prpr                        = "$ng_group_id:$ng_prpr_artifact_id:$ng_prpr_version"
+    bus_app_pin                         = "$ng_group_id:$ng_bus_apppin_artifact_id:$ng_bus_apppin_version"
+
+    //想鞭尸？
+//    open_ng_news_expand                 = "$ng_group_id:$ng_news_expand_artifact_id:$ng_news_expand_version"
+//    open_ng_tencen_weixin               = "$ng_group_id:$ng_tencen_weixin_artifact_id:$ng_tencen_weixin_version"
+//    open_ng_tencen_common               = "$ng_group_id:$ng_tencen_common_artifact_id:$ng_tencen_common_version"
+//    open_ng_vivo_push                   = "$ng_group_id:$ng_vivo_push_artifact_id:$ng_vivo_push_version"
+//    open_ng_daemon_dCore                = "$ng_group_id:$daemon_dCore_artifact_id:$daemon_dCore_version"
+//    open_ng_daemonAssist                = "$ng_group_id:$daemonAssist_artifact_id:$daemonAssist_version"
+//    open_ng_dynamicSo                   = "$ng_group_id:$dynamicSo_artifact_id:$dynamicSo_version"
+}

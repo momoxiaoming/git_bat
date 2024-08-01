@@ -1,0 +1,109 @@
+{
+  "libs_base": [
+    {
+      "name": "wb_core_common",
+      "path": "com.vimedia.core:common:1.7.0.66-20221124.100626-1"
+    },
+    {
+      "name": "wb_core_kinetic",
+      "path": "com.vimedia.core:kinetic:2.8.4.054-20221122.030938-1"
+    },
+    {
+      "name": "wb_ad_manager",
+      "path": "com.vimedia.ad:manager:2.3.8.6-20221024.112506-1"
+    },
+    {
+      "name": "wb_ad_msg_style",
+      "path": "com.vimedia.ad:msg_style:1.0.6"
+    },
+    {
+      "name": "wb_tj_manager",
+      "path": "com.vimedia.tj:manager:1.3.1.1-20221024.141730-1"
+    },
+    {
+      "name": "wb_track_manager",
+      "path": "com.vimedia.track:manager:1.4.1.7-20221121.095333-1"
+    }
+  ],
+  "libs_ad": [
+    {
+      "name": "wb_ad_gdt",
+      "path": "com.vimedia.ad:gdt:1.6.0",
+      "depend": "api"
+    },
+    {
+      "name": "wb_ad_headline",
+      "path": "com.vimedia.ad:headline:1.6.7.4-20221031.090925-1",
+      "depend": "api"
+    },
+    {
+      "name": "wb_ad_kuaishou",
+      "path": "com.vimedia.ad:kuaishou:1.3.4",
+      "depend": "api"
+    },
+    {
+      "name": "wb_ad_baidu",
+      "path": "com.vimedia.ad:baidu:1.3.3.3605-20230921.041000-4"
+    },
+    {
+      "name": "wb_ad_vigame",
+      "path": "com.vimedia.ad:vigame:1.3.8.1-20220727.062015-1"
+    },
+    {
+      "name": "wb_ad_sigmob",
+      "path": "com.vimedia.ad:sigmob:1.2.1"
+    },
+    {
+      "name": "wb_ad_mobvista",
+      "path": "com.vimedia.ad:mobvista:1.2.5"
+    },
+    {
+      "name": "wb_ad_mi",
+      "path": "com.vimedia.ad:mi:1.2.2"
+    },
+    {
+      "name": "wb_ad_mi_juhe",
+      "path": "com.vimedia.ad:mijuhe:1.0.0.2-20220408.114137-3"
+    },
+    {
+      "name": "wb_ad_mi_app",
+      "path": "com.vimedia.ad:miApp:1.0.0-20220224.092507-2"
+    },
+    {
+      "name": "wb_ad_headline_juhe",
+      "path": "com.vimedia.ad:headline_JuHe:1.1.7"
+    },
+    {
+      "name": "wb_ad_vivo",
+      "path": "com.vimedia.ad:vivotest:1.2.9"
+    },
+    {
+      "name": "wb_ad_vivo_juhe",
+      "path": "com.vimedia.ad:vivojuhe:1.0.5-20220120.105612-12"
+    },
+    {
+      "name": "wb_ad_oppo",
+      "path": "com.vimedia.ad:oppotest:1.2.8.4-20220330.083302-1"
+    },
+    {
+      "name": "wb_ad_huawei",
+      "path": "com.vimedia.ad:huawei:1.2.8.0-20220408.111000-2"
+    }
+  ],
+  "libs_tj": [
+    {
+      "name": "wb_tj_umeng",
+      "path": "com.vimedia.tj:umeng:1.2.7"
+    },
+    {
+      "name": "wb_tj_kfk",
+      "path": "com.vimedia.tj:kafka:1.3.9"
+    }
+  ],
+  "libs_track": [
+    {
+      "name": "wb_track_reyun",
+      "path": "com.vimedia.track:reyun:1.3.9"
+    }
+  ]
+}

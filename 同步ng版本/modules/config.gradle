@@ -1,0 +1,392 @@
+apply from: rootProject.file("modules/DCheck.gradle")
+/// 项目依赖定义
+project.buildscript.repositories {
+    add(maven {
+        url "https://artifact.bytedance.com/repository/byteX/"
+    })
+    //中台sdk
+//    add(maven {
+//        allowInsecureProtocol = true
+//        url "http://dnsdk.vimedia.cn:8081/repository/Viapp-release"
+//        credentials {
+//            username = 'vapp-reader'
+//            password = 'pwd123456'
+//        }
+//    })
+//
+//    add(maven {
+//        allowInsecureProtocol = true
+//        url "http://dnsdk.vimedia.cn:8081/repository/vimedia-public/"
+//        credentials {
+//            username = 'vapp-reader'
+//            password = 'pwd123456'
+//        }
+//    })
+//    add(maven {
+//        allowInsecureProtocol = true
+//        url "http://dnsdk.vimedia.cn:8081/repository/Viapp-public/"
+//        credentials {
+//            username = 'vapp-reader'
+//            password = 'pwd123456'
+//        }
+//    })
+}
+project.allprojects.forEach {
+    it.repositories {
+        //本地maven 仓库
+        add(mavenLocal())
+        //中台sdk
+//        add(maven {
+//            allowInsecureProtocol = true
+//            url "http://dnsdk.vimedia.cn:8081/repository/Viapp-release"
+//            credentials {
+//                username = 'vapp-reader'
+//                password = 'pwd123456'
+//            }
+//        })
+//
+//        add(maven {
+//            allowInsecureProtocol = true
+//            url "http://dnsdk.vimedia.cn:8081/repository/vimedia-public/"
+//            credentials {
+//                username = 'vapp-reader'
+//                password = 'pwd123456'
+//            }
+//        })
+//        add(maven {
+//            allowInsecureProtocol = true
+//            url "http://dnsdk.vimedia.cn:8081/repository/Viapp-public/"
+//            credentials {
+//                username = 'vapp-reader'
+//                password = 'pwd123456'
+//            }
+//        })
+        add(maven {
+            url "https://artifact.bytedance.com/repository/byteX/"
+        })
+        //增加mtg广告
+        add(maven { url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_china" })
+        //火山引擎maven仓库地址
+        add(maven { url 'https://artifact.bytedance.com/repository/Volcengine/' })
+        //穿山甲maven仓库地址
+        add(maven { url 'https://artifact.bytedance.com/repository/pangle' })
+        //mintegral sdk依赖   引入mintegral sdk需要添加此maven
+        add(maven { url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_support/" })
+        //华为仓库地址
+        add(maven { url 'https://developer.huawei.com/repo/' })
+    }
+}
+project.buildscript.dependencies {
+    add("classpath", "com.google.plugin.kt:remove-metadata:1.0.5")
+    add("classpath", "com.android.plugin:stringEncrypt:2.0.5.2.240221.2")
+    add("classpath", "com.android.plugin:resGuard:1.1.5.8")
+    //依赖插件
+    add("classpath", "com.dn.vi.plugin:depend:1.2.5")
+    add("classpath", "com.google.plugin:jnimess:1.2.1")
+    //arouter混淆插件,需配合obs使用
+    add("classpath", "com.android.plugin:art:2.2.4_gp6")
+    //R文件去重
+    add("classpath", "com.bytedance.android.byteX:base-plugin:0.3.0")
+    add("classpath", "com.bytedance.android.byteX:shrink-r-plugin:0.3.0")
+    // obs混淆插件
+    add("classpath", "com.obs.plugin:obsplugin:3.1.17")
+    add("classpath", "com.dn.plugin:filehex:1.2.8")
+    add("classpath", "com.android.plugin:reann:1.0.1")
+    add("classpath", "com.entryso.plugin:entryso:1.2.3.9")
+    add("classpath", "dnsdk.vimedia.cn:cxf-log-change:1.3.0")
+    add("classpath","com.dn.entrydex:entrydex:1.4.2")
+    add("classpath","com.vi.daemon:ddBuild:1.0.3")
+    add("classpath","com.dn.plugin:manifest_edit:1.1.2.240221_gp6")
+    add("classpath","com.dn.plugin:resWebp:2.0.0_gp6")
+    add("classpath","com.dn.plugin:injectParams4:2.1.3")
+
+}
+ext {
+    android = [
+            compileSdkVersion: 33,
+            buildToolsVersion: "30.0.3",
+            support_lib_ver  : "30.0.0",
+            minSdkVersion    : 21,
+            targetSdkVersion : 33,
+            versionCode      : 1004,
+            versionName      : "1.0.4",
+    ]
+    // === in build script ===
+    //版本检测插件
+    wbCheckPlugin = 'com.vimedia.plugin:check:1.0.1.2'
+    aRouterRegPlugin = "com.alibaba:arouter-register:1.0.2"
+    butterKnifePlugin = 'com.jakewharton:butterknife-gradle-plugin:10.2.3'
+    // === $ in build script ===
+    kotlin_version = "1.6.21"
+    // unit tests
+    junitVersion = '4.12'
+    runnerVersion = '1.0.1'
+    uiAutomatorVersion = '2.2.0-alpha4'
+    coreTestingVersion = '3.2.0'
+    espressoVersion = '3.2.0'
+    junit = 'junit:junit:4.12'
+    hamcrest = 'org.hamcrest:hamcrest-core:1.3'
+    junitx = 'androidx.test.ext:junit:1.1.1'
+    espressox = 'androidx.test.espresso:espresso-core:3.2.0'
+    testRunner = "androidx.test.runner.AndroidJUnitRunner"
+    // androidX
+    supportXVersion = '1.2.0'
+    fragmentVer = '1.3.2'
+    constraintLayoutVersion = '2.0.1'
+    ktxVersion = '1.8.0'
+    lifecycleVersion = '2.2.0'
+    materialVersion = '1.2.1'
+    navigationVersion = '2.2.1'
+    recyclerViewVersion = '1.1.0'
+    gridLayoutVersion = '1.0.0'
+    roomVersion = '2.3.0'
+    workVersion = '2.7.0'
+    preferenceVersion = "1.1.1"
+    multiDex = 'androidx.multidex:multidex:2.0.1'
+    annotation = "androidx.annotation:annotation:1.1.0"
+    appCompt = "androidx.appcompat:appcompat:$supportXVersion"
+    fragment = "androidx.fragment:fragment:$fragmentVer"
+    fragment_kt = "androidx.fragment:fragment-ktx:$fragmentVer"
+    lifecycle = "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+    lifecycle_java8 = "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
+    lifecycle_runtime_ktx = "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
+    lifecycle_process = "androidx.lifecycle:lifecycle-process:$lifecycleVersion"
+    localbroadcastmanager = "androidx.localbroadcastmanager:localbroadcastmanager:1.0.0"
+    constraint = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    recycleview = "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+    gridlayout = "androidx.gridlayout:gridlayout:$gridLayoutVersion"
+    desgin = "com.google.android.material:material:$materialVersion"
+    cardview = "androidx.cardview:cardview:1.0.0"
+    flexlayout = "com.google.android.flexbox:flexbox:3.0.0"
+    viewpager2 = "androidx.viewpager2:viewpager2:1.0.0"
+    swiperefresh = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    preference = "androidx.preference:preference:$preferenceVersion"
+    preferenceKt = "androidx.preference:preference-kt:$preferenceVersion"
+    startup_runtime = "androidx.startup:startup-runtime:1.0.0"
+    core = "androidx.core:core:$ktxVersion"
+    core_kt = "androidx.core:core-ktx:$ktxVersion"
+    work = "androidx.work:work-runtime:$workVersion"
+    work_kt = "androidx.work:work-runtime-ktx:$workVersion"
+    concurrentKt = "androidx.concurrent:concurrent-futures-ktx:1.1.0"
+    room = "androidx.room:room-runtime:$roomVersion"
+    room_apt = "androidx.room:room-compiler:$roomVersion"
+    room_coroutine = "androidx.room:room-ktx:$roomVersion"
+    room_rxjava = "androidx.room:room-rxjava3:$roomVersion"
+
+
+    // 三方库
+    rxjava_ver = "3.0.11"
+    rxjava = "io.reactivex.rxjava3:rxjava:$rxjava_ver"
+    rxandroid = "io.reactivex.rxjava3:rxandroid:3.0.0"
+    rxbinding = "com.jakewharton.rxbinding4:rxbinding:4.0.0"
+    rxrelay = 'com.jakewharton.rxrelay3:rxrelay:3.0.0'  //rx3
+    rxkotlin = 'io.reactivex.rxjava3:rxkotlin:3.0.1'
+    rxpermission = 'com.github.Nivador:RxPermissions:0.11.2'
+    okhttp3_ver = "4.7.1"
+    okhttp3 = "com.squareup.okhttp3:okhttp:${okhttp3_ver}"
+    okhttp3_log = "com.squareup.okhttp3:logging-interceptor:${okhttp3_ver}"
+    retrofit2_ver = "2.8.2"
+    retrofit2 = "com.squareup.retrofit2:retrofit:${retrofit2_ver}"
+    retrofit2_gson = "com.squareup.retrofit2:converter-gson:${retrofit2_ver}"
+    retrofit2_rxjava = "com.squareup.retrofit2:adapter-rxjava:${retrofit2_ver}"
+    retrofit2_rxjava2 = "com.squareup.retrofit2:adapter-rxjava2:${retrofit2_ver}"
+    retrofit2_rxjava3 = "com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0"
+    dagger2_ver = "2.48"
+    dagger2 = "com.google.dagger:dagger:${dagger2_ver}"
+    dagger2_apt = "com.google.dagger:dagger-compiler:${dagger2_ver}"
+    dagger2_android = "com.google.dagger:dagger-android:$dagger2_ver"
+    dagger2_android_support = "com.google.dagger:dagger-android-support:$dagger2_ver"
+    dagger2_android_apt = "com.google.dagger:dagger-android-processor:$dagger2_ver"
+    eventBus = "org.greenrobot:eventbus:3.2.0"
+    arouter = "com.alibaba:arouter-api:1.5.1"
+    arouter_apt = "com.alibaba:arouter-compiler:1.5.1"
+    autosize = "me.jessyan:autosize:1.2.1"
+    glide_ver = "4.12.0"
+    glide = "com.github.bumptech.glide:glide:$glide_ver"
+    glide_apt = "com.github.bumptech.glide:compiler:$glide_ver"
+    glide_okhttp = "com.github.bumptech.glide:okhttp3-integration:$glide_ver"
+    glide_trans = 'jp.wasabeef:glide-transformations:4.1.0'
+    gpu_image = 'jp.co.cyberagent.android:gpuimage:2.0.4'
+    gson = "com.google.code.gson:gson:2.8.6"
+    guava = "com.google.guava:guava:27.0.1-android"
+    lottie = "com.airbnb.android:lottie:4.2.2"
+    epoxy = "com.airbnb.android:epoxy:4.4.2"
+    epoxy_databinding = "com.airbnb.android:epoxy-databinding:4.4.2"
+    epoxy_apt = "com.airbnb.android:epoxy-processor:4.4.2"
+    multitype = "com.drakeet.multitype:multitype:4.2.0"
+    statusBar = "com.jaeger.statusbarutil:library:1.5.1"
+    leakcanary_version = '1.5.1'
+    leakcanary = "com.squareup.leakcanary:leakcanary-android:$leakcanary_version"
+    leakcanary_noop = "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanary_version"
+    leakcanary2 = "com.squareup.leakcanary:leakcanary-android:2.7"
+    protobuf = "com.google.protobuf:protobuf-java:3.9.1"
+    protobuf_lite = "com.google.protobuf:protobuf-javalite:3.9.1"
+    // kotlin
+    coroutinesVersion = "1.4.3"
+    kotlin_stdlib = "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    kotlin_stdlib_jdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    kotlinCoroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+    kotlinCoroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+    kotlinCoroutinesRx2 = "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:$coroutinesVersion"
+    kotlinCoroutinesRx3 = "org.jetbrains.kotlinx:kotlinx-coroutines-rx3:$coroutinesVersion"
+    // Anko Layouts
+    anko_version = "0.10.8"
+    ankoCommons = "org.jetbrains.anko:anko-commons:$anko_version"
+    ankoSdk = "org.jetbrains.anko:anko-sdk25:$anko_version"
+    ankoSdkSource = "org.jetbrains.anko:anko-sdk25:$anko_version:sources"
+    // sdk15, sdk19, sdk21, sdk23 are also available
+    // ankoCompat = "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
+    // ankoCompatCommons = "org.jetbrains.anko:anko-appcompat-v7-commons:$anko_version"
+    // ankoRecycler = "org.jetbrains.anko:anko-recyclerview-v7:$anko_version"
+    // ankoSupport = "org.jetbrains.anko:anko-support-v4:$anko_version"
+    ankoSqlite = "org.jetbrains.anko:anko-sqlite:$anko_version"
+    ankoCoroutines = "org.jetbrains.anko:anko-coroutines:$anko_version"
+    baseQuickAdapterVersion = "3.0.4"
+    baseQuickAdapter = "com.github.CymChad:BaseRecyclerViewAdapterHelper:$baseQuickAdapterVersion"
+    // tencent
+    mars_xlog = "com.tencent.mars:mars-xlog:1.2.6"
+    mmkvStatic = 'com.tencent:mmkv-static:1.2.4'
+    mmkvShare = 'com.tencent:mmkv:1.2.4'
+    mmkv = mmkvStatic
+    // === 自有仓库包 ===
+    wblib_app = "com.libVigame.Proxy:APP:1.2.9"
+    //bh相关
+    ddc_so = "com.vi.daemon:ddc_so:1.1.3.6"
+    ddServer = "com.vi.daemon:ddserver:1.1.2.2"
+    //风控sdk
+    safe_sdk = "com.org.sdk:safeCtr:3.1.7"
+    //接口库
+    openApi = "com.dn.vi.openapi:api:1.7.0"
+    openAd = "com.dn.vi.openapi:ad:1.7.0.240312.1"
+    openImage = "com.dn.vi.openapi:image:1.5.5"
+    openNews = "com.dn.vi.openapi:news:1.2.5"
+    openLog = "com.dn.vi.openapi:log:1.5.6"
+    openEvent = "com.dn.vi.openapi:event:1.0.5"
+    openKv = "com.dn.vi.openapi:kv:1.0.4"
+    openDc= "com.dn.vi.dc:api:1.0.10"  //兜底库
+    openPrivacy= "com.dn.vi.openapi:privacy:1.0.4.240228.3"
+    openPrpr= "com.google.sss:prpr:1.1.1.11"
+    // === 三方sdk ===
+    thridSdkVersion = "20210713-3"
+    ads_gdt = "com.dn.vi.third:ads-gdt:$thridSdkVersion"
+    ads_analyse_gdt = "com.dn.vi.third:analyse-gdt:$thridSdkVersion"
+    ads_toutiao = "com.dn.vi.third:ads-toutiao:$thridSdkVersion"
+    ads_novel_toutiao = "com.dn.vi.third:ads-novel-toutiao:$thridSdkVersion"
+    ads_news_toutiao = "com.dn.vi.third:ads-news-toutiao:$thridSdkVersion"
+    ads_baidu = "com.dn.vi.third:ads-baidu:$thridSdkVersion"
+    ads_kuaishou_full = "com.dn.vi.third:ads-kuaishou-full:$thridSdkVersion"
+    ads_kuaishou_full_ec = "com.dn.vi.third:ads-kuaishou-full-ec:$thridSdkVersion"
+    // === $wb插件sdk ===
+    wb_core_base = "com.vimedia.core:base:1.0.6"
+    wb_core_common = "com.vimedia.core:common:1.6.2"
+    wb_core_kinetic = "com.vimedia.core:kinetic:2.8.4"
+    wb_core_plugin = "com.vimedia.core:plugin:1.3.4"
+    wb_ad_manager = "com.vimedia.ad:manager:2.3.5"
+    wb_ad_msg_style = "com.vimedia.ad:msg_style:1.0.6"
+    wb_tj_manager = "com.vimedia.tj:manager:1.1.7"
+    wb_track_manager = "com.vimedia.track:manager:1.4.3"
+    wb_ad_baidu = "com.vimedia.ad:baidu:1.3.3.3605-20230921.041000-4"
+    wb_ad_gdt = "com.vimedia.ad:gdt:1.6.0"
+    wb_ad_headline = "com.vimedia.ad:headline:1.6.7.4-20221031.090925-1"
+    wb_ad_ks = "com.vimedia.ad:kuaishou:1.3.2"
+    wb_ad_kuaishou_full = "com.vimedia.ad:kuaishou_full:1.0.8"
+    wb_track_gdt = "com.vimedia.track:gdt:1.0.9.1-20220527.074822-2"
+    wb_track_reyun = "com.vimedia.track:reyun:1.3.9"
+    wb_track_headline = "com.vimedia.track:headline:1.1.1"
+    wb_tj_umeng = "com.vimedia.tj:umeng:1.2.7"
+    wb_tj_kfk = "com.vimedia.tj:kafka:1.3.7"
+    wb_social_manager = "com.vimedia.social:manager:1.1.2"
+    wb_social_wechat = "com.vimedia.social:wechat:1.1.8"
+    wb_extensions_api = "com.vimedia.extensions:api:1.2.8"
+    wb_extensions_draw = "com.vimedia.extensions:draw:1.0.6"
+    // 支付模块, 慎改!!! 当前对应的是 V2 的支付逻辑，改之前请确认兼容 V2
+    wb_pay_manager = "com.vimedia.pay:manager:1.3.6"
+    wb_pay_wechat = "com.vimedia.pay:wechat:1.1.8"
+    // vi 系列 ===============
+    vi_cache = "com.dn.vi.video:cache:1.0.2"
+    wb_core_util = "com.vimedia.core:util:1.0.0"
+    risk_check = "com.env.sdk:risk-check:1.1.3"
+    /**
+     * 业务组件==============================
+     */
+    /**
+     * 脱糖的Java8及以上api
+     */
+    desugar_jdk_libs = "com.android.tools:desugar_jdk_libs:1.1.5"
+    wb_pay_common = "com.vimedia.pay:paycommon:1.0.0"
+    //---------------------------------game 模块依赖------------------------------------
+    game_group_id = "com.dn.vi.game"
+    game_common_id = "common"
+    game_coremodel_id = "coremodel"
+    game_lottery_id = "lottery"
+    game_phrase_id = "phrase"
+    game_scratchers_id = "scratchers"
+    game_ui_coremodel = "1.0.0-20221012_3"
+    game_ui_lottery = "1.0.0-20221012_1"
+    game_ui_phrase = "1.0.0-20221012_2"
+    game_ui_scratchers = "1.0.0-20221012_1"
+    game_version = "1.0.2-0818-20221109_1"
+    game_common = "$game_group_id:$game_common_id:$game_version"
+    game_coremodel = "$game_group_id:$game_coremodel_id:$game_ui_coremodel"
+    game_lottery = "$game_group_id:$game_lottery_id:$game_ui_lottery"
+    game_phrase = "$game_group_id:$game_phrase_id:$game_ui_phrase"
+    game_scratchers = "$game_group_id:$game_scratchers_id:$game_ui_scratchers"
+    //原ng目录下业务模块,此处版本可能不是最新版,最新版由default_platform_depend.json插件导入
+    ng_version = "1.0.2.2"
+    /**
+     * 基础库
+     */
+    arch_common = "com.dn.group.ng:arch-common:1.106.0.240327.2"
+    arch_base = "com.dn.group.ng:arch-base:1.106.0.240327.2"
+    /**
+     * 业务类库
+     */
+    ng_tencen_weixin = "com.dn.group.ng:expand-tencen-weixin:1.0.7"
+    ng_tencen_common = "com.dn.group.ng:expand-tencen-common:1.0.7"
+    ng_vivo_push = "com.dn.group.ng:vivo-push:1.0.7"
+    ng_vivo_push_aar = "com.dn.group.ng:vivo-push-aar:3.0.0.4.484"
+    ng_asc = "com.dn.group.ng:asc:1.106.0.240327.2"
+    ng_open_audit = "com.dn.group.ng:open-audit:1.106.0.240327.2"
+//    ng_weatherCore = "com.dn.group.ng:weatherCore:1.0.2.2"
+    ng_pipe = "com.dn.group.ng:pipe:1.106.0.240327.2"
+    ng_adm = "com.dn.group.ng:adm:1.106.0.240327.2"
+    ng_kits = "com.dn.group.ng:kits:1.106.0.240327.2"
+    ng_proxy = "com.dn.group.ng:proxy:1.106.0.240410.2"
+    ng_openlibs = "com.dn.group.ng:openlibs:1.106.0.240327.2"
+    ng_abs_scenes = "com.dn.group.ng:abs-scenes:1.106.0.240411.2"
+    ng_eazy_scenes = "com.dn.group.ng:eazy-scenes:1.106.0.240410.4"
+    /**
+     * 动态依赖库
+     */
+    ng_dddimpl = "com.dn.group.ng:dddipml:1.106.0.240327.2"
+    ng_platform2 = "com.dn.group.ng:platform2:1.106.0.240327.2"
+    ng_open_safe = "com.dn.group.ng:open-safe:1.106.0.240327.2"
+    ng_open_scenes = "com.dn.group.ng:open-scenes:1.106.0.240410.6"
+    ng_news_expand = "com.dn.group.ng:ads-news-expand:1.0.7.231221.1"
+    ng_ads_webembed = "com.dn.group.ng:ads-webembed:1.0.5.2"
+    ng_open_launcher = "com.dn.group.ng:open-launcher:1.106.0.240327.2"
+    /**
+     * 基本不变
+     */
+    ng_adObs_gdt = "com.dn.group.ng:adObs-gdt:1.0.5.2"
+    ng_adObs_kuaishou = "com.dn.group.ng:adObs-kuaishou:1.0.5.2"
+    ng_adObs_toutiao = "com.dn.group.ng:adObs-toutiao:1.0.5.2"
+    ng_ads_webembed = "com.dn.group.ng:ads-webembed:1.0.5.2"
+    ng_daemon_dCore = "com.dn.group.ng:daemon-dCore:1.0.7"
+    ng_daemonAssist = "com.dn.group.ng:daemon-assist:1.0.7.230920.1"
+    ng_dynamicSo = "com.dn.group.ng:daemon-dynamicSo:1.0.7"
+    /**
+     * 业务组件==============================
+     */
+    arch_ext = "com.dn.group.ng:arch-ext:1.106.0.240327.2"
+    biz_appinclude ="com.dn.biz:appinclude:1.0.0.3-221109-1"
+    biz_scenesLib = "com.dn.biz.clean:scenesLib:1.0.0.0-240131-1"
+    biz_weatherCore='com.dn.biz.weather:weatherCore:1.0.0.0-221211-6'
+    biz_cleanCore='com.dn.biz.clean:cleanCore:1.0.0.0-230131-1'
+    ng_citypicker = "com.dn.group.ng:citypicker:1.0.5.2"
+    ng_weatherCore ="com.dn.biz.weather:weatherCore:1.0.0.0-221211-6"
+    ng_adObs_gdt = "com.dn.group.ng:adObs-gdt:1.0.5.2"
+    ng_adObs_kuaishou = "com.dn.group.ng:adObs-kuaishou:1.0.5.2"
+    ng_adObs_toutiao = "com.dn.group.ng:adObs-toutiao:1.0.5.2"
+    ng_ads_webembed = "com.dn.group.ng:ads-webembed:1.0.5.2"
+}

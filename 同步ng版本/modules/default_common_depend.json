@@ -1,0 +1,118 @@
+{
+  "libs_module": [
+    {
+      "name": "ng_api_base",
+      "path": "com.dn.vi.openapi:api:1.7.0#com.dn.vi.openapi:privacy:1.0.4.240228.3#com.vimedia.core:util:1.0.0#com.vimedia.core:base:1.0.6#com.dn.vi.openapi:log:1.5.6#com.dn.vi.openapi:image:1.5.5#com.dn.vi.openapi:kv:1.0.4"
+    },
+    {
+      "name": "ng_arch_ext",
+      "path": "com.dn.group.ng:arch-ext:1.106.0.240327.2"
+    },
+    {
+      "name": "ng_arch_common",
+      "path": "com.dn.group.ng:arch-common:1.106.0.240327.2"
+    },
+    {
+      "name": "ng_arch_base",
+      "path": "com.dn.group.ng:arch-base:1.106.0.240327.2"
+    },
+    {
+      "name": "ng_pipe",
+      "path": "com.dn.group.ng:pipe:1.106.0.240327.2"
+    },
+    {
+      "name": "ng_adm",
+      "path": "com.dn.group.ng:adm:1.106.0.240327.2"
+    },
+    {
+      "name": "ng_kits",
+      "path": "com.dn.group.ng:kits:1.106.0.240327.2"
+    },
+    {
+      "name": "ng_proxy",
+      "path": "com.dn.group.ng:proxy:1.106.0.240410.2#com.dn.vi.dc:api:1.0.10"
+    },
+    {
+      "name": "ng_openlibs",
+      "path": "com.dn.group.ng:openlibs:1.106.0.240327.2"
+    },
+    {
+      "name": "ng_abs_scenes",
+      "path": "com.dn.group.ng:abs-scenes:1.106.0.240411.2"
+    },
+    {
+      "name": "ng_tencen_common",
+      "path": "com.dn.group.ng:expand-tencen-common:1.0.7"
+    },
+    {
+      "name": "ng_open_audit",
+      "path": "com.dn.group.ng:open-audit:1.106.0.240327.2"
+    },
+    {
+      "name": "ng_hot_dex",
+      "path": "com.dn.group.ng:hotDex:1.106.0.240327.2"
+    },
+    {
+      "name": "ng_open_prpr",
+      "path": "com.dn.group.ng:open_prpr:1.106.0.240327.3#com.google.sss:prcol:1.1.2.2#com.google.sss:prpr:1.1.1.11"
+    }
+  ],
+  "libs_ng": [
+    {
+      "name": "ng_weatherCore",
+      "path": "com.dn.biz.weather:weatherCore:1.0.0.0-221211-6"
+    },
+    {
+      "name": "ng_platform2",
+      "path": "com.dn.group.ng:platform2:1.106.0.240327.2#com.dn.vi.openapi:ad:1.7.0.240312.1#com.dn.vi.openapi:event:1.0.5"
+    },
+    {
+      "name": "ng_open_scenes",
+      "path": "com.dn.group.ng:open-scenes:1.106.0.240410.6#com.dn.group.ng:ads-webembed:1.0.5.2"
+    },
+    {
+      "name": "ng_open_launcher",
+      "path": "com.dn.group.ng:open-launcher:1.106.0.240327.2"
+    },
+    {
+      "name": "ng_open_safe",
+      "path": "com.dn.group.ng:open-safe:1.106.0.240327.2#com.org.sdk:safeCtr:3.1.7"
+    },
+    {
+      "name": "ng_news",
+      "path": "com.dn.group.ng:ads-news-expand:1.0.7.231221.1#com.dn.vi.openapi:news:1.2.5"
+    },
+    {
+      "name": "ng_dddipml",
+      "path": "com.dn.group.ng:dddipml:1.106.0.240327.2#com.dn.group.ng:daemon-dynamicSo:1.0.7#com.vi.daemon:ddc_so:1.1.3.6#com.vi.daemon:ddserver:1.1.2.2"
+    },
+    {
+      "name": "ng_tencen_weixin",
+      "path": "com.dn.group.ng:expand-tencen-weixin:1.0.7#com.vimedia.social:manager:1.1.2#com.vimedia.social:wechat:1.1.8#com.vimedia.pay:wechat:1.1.8#com.vimedia.pay:manager:1.3.6#com.vimedia.pay:paycommon:1.0.0"
+    },
+    {
+      "name": "dd_dcore",
+      "path": "com.vi.daemon:dd_dcore:1.1.1"
+    },
+    {
+      "name": "dd_c_instr",
+      "path": "com.vi.daemon:ddinstr:1.1.1"
+    },
+    {
+      "name": "dd_c_op_kg",
+      "path": "com.vi.daemon:ddc_oppo_keyguard:1.1.1"
+    },
+    {
+      "name": "dd_dk",
+      "path": "com.vi.daemon:dd_dk:1.1.1"
+    },
+    {
+      "name": "dd_account",
+      "path": "com.vi.daemon:dd_account:1.1.1.4"
+    },
+    {
+      "name": "app_pin",
+      "path": "com.dn.group.ng:bus-apppin:1.106.0.240327.2"
+    }
+  ]
+}
