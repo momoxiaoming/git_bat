@@ -1,0 +1,8 @@
+{
+        "gitPath":"http://zhangjinming:zhangjinming@szdnwx.tpddns.cn:11000/gp_game/heroarmour.git",
+        "gitBranch": "master",
+        "singleid": "127",
+        "OBS": "true",
+        "isWhiteWrap": "true",
+        "isBuildApk":"false"
+}

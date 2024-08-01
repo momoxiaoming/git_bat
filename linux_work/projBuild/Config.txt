@@ -1,0 +1,14 @@
+{
+        "gitPath": "http://zhangjinming:zhangjinming@szdnwx.tpddns.cn:11000/gp_game/gameframe.git",
+        "gitBranch": "feature/unity_simple",
+        "modulesBranch": "feature/unity_simple",
+        "isWhiteWrap": "false",
+        "singleid": "e0bc6d77a39c2927",
+        "gameIndex":"1204",
+        "orderId":"49",
+        "ArtOBS": "true",
+        "OBS": "true",
+        "org.gradle.daemon":"false",
+        "org.gradle.jvmargs":"-XX:+UseParallelGC -Xmx4g -Xms1g -XX:MaxMetaspaceSize=512m  -Dfile.encoding=UTF-8",
+        "isBuildApk":"false"
+}
