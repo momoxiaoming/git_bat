@@ -9,7 +9,7 @@ import zipfile
 
 
 
-aar_version = '1.108.3.240730.1'
+aar_version = '2.107.6'
 
 rc4_key = 'good_hot_dex'
 baseDir='aar/'

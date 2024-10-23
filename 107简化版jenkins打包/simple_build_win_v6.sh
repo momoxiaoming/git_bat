@@ -61,6 +61,11 @@ elif [[ $channel == "oppo" ]]; then
     #ovstore_v1.0.8.1分支开始,所有渠道不再携带app_pin模块, 此处脚本为了兼容以前的分支,所以未去除, 实际1081后的分支modules模块中已去除此模块
     LIBS_NG_BH=",ng_dddipml,dd_dcore,dd_c_instr,dd_account,dd_dk,app_pin"
     support_oppo="true"
+elif [[ $channel == "oppo_obs" ]]; then
+    #opyy渠道
+    #ovstore_v1.0.8.1分支开始,所有渠道不再携带app_pin模块, 此处脚本为了兼容以前的分支,所以未去除, 实际1081后的分支modules模块中已去除此模块
+    LIBS_NG_BH=",ng_dddipml,dd_dk,dd_oppo_comp_core"
+    support_oppo="true"
 elif [[ $channel == "csj" ]]; then
     #兜底渠道
     #ovstore_v1.0.8.1分支开始,所有渠道不再携带app_pin模块, 此处脚本为了兼容以前的分支,所以未去除, 实际1081后的分支modules模块中已去除此模块
@@ -84,6 +89,10 @@ elif [[ $channel == "iaa" ]]; then
     #内广渠道,bh
     LIBS_NG_BH=""
     LIBS_NG_OTHER=",ng_platform2"
+elif [[ $channel == "iaa_scenes" ]]; then
+    #广告+场景
+    LIBS_NG_BH=""
+    LIBS_NG_OTHER=",ng_platform2,ng_open_scenes"
 fi
 
 LIBS_NG_ALL="$LIBS_NG_BASE$LIBS_NG_OTHER$LIBS_NG_BH"

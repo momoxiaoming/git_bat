@@ -53,7 +53,7 @@ try:
         if detect_sound(data,1000):  # 填写声音阈值
             print("检测到声音，按键 '1' 被点击")
             # 等待1秒，以防止连续触发
-            time.sleep(7)
+            # time.sleep(7)
 
         time.sleep(0.2)
 except KeyboardInterrupt:
