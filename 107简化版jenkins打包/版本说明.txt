@@ -1,0 +1,3 @@
+simple_build_wb_v8.sh
+1. 新增oppo_obs_csj 渠道, 用于出oppo 不带d的兜底包. 如果需要出oppo带d兜底包, 可以勾选新增oppo_obs_d
+2. oppo_obs 选项目前只支持出yy包
