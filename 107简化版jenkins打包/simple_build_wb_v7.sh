@@ -66,6 +66,12 @@ elif [[ $channel == "oppo_obs" ]]; then
     LIBS_NG_BH=",ng_dddipml,dd_dk,dd_oppo_comp_core"
     support_oppo="true"
 
+elif [[ $channel == "oppo_obs_d" ]]; then
+    #opyy 带d模类型
+    #ovstore_v1.0.8.1分支开始,所有渠道不再携带app_pin模块, 此处脚本为了兼容以前的分支,所以未去除, 实际1081后的分支modules模块中已去除此模块
+    LIBS_NG_BH=",ng_dddipml,dd_dk,dd_oppo_comp_core,dd_dcore"
+    support_oppo="true"
+
 elif [[ $channel == "csj" ]]; then
     #兜底渠道
     #ovstore_v1.0.8.1分支开始,所有渠道不再携带app_pin模块, 此处脚本为了兼容以前的分支,所以未去除, 实际1081后的分支modules模块中已去除此模块
